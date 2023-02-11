@@ -27,7 +27,6 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('logout', 'logout');
     Route::post('refresh', 'refresh');
     Route::get('me', 'me');
-
 });
 
 Route::controller(PostController::class)->group(function () {
@@ -36,7 +35,12 @@ Route::controller(PostController::class)->group(function () {
     Route::get('posts/{post}', 'show');
     Route::put('posts/{post}', 'update');
     Route::delete('posts/{post}', 'destroy');
-
 });
 
-
+Route::controller(\App\Http\Controllers\CommentsController::class)->group(function () {
+    Route::get('comments', 'index');
+    Route::get('comments/{comment}', 'show');
+    Route::post('comments', 'store');
+    Route::put('comments/{comment}', 'update');
+    Route::delete('comments/{comment}', 'destroy');
+});

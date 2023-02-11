@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -28,3 +29,14 @@ Route::controller(AuthController::class)->group(function () {
     Route::get('me', 'me');
 
 });
+
+Route::controller(PostController::class)->group(function () {
+    Route::get('posts', 'index');
+    Route::post('posts', 'store');
+    Route::get('posts/{post}', 'show');
+    Route::put('posts/{post}', 'update');
+    Route::delete('posts/{post}', 'destroy');
+
+});
+
+

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 
-class CommentsController extends Controller
+class CommentController extends Controller
 {
     public function index()
     {

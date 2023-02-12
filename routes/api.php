@@ -20,6 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/all',fn()=>'this is all');
 
 Route::controller(AuthController::class)->group(function () {
     Route::post('login', 'login');
@@ -43,4 +44,12 @@ Route::controller(\App\Http\Controllers\CommentsController::class)->group(functi
     Route::post('comments', 'store');
     Route::put('comments/{comment}', 'update');
     Route::delete('comments/{comment}', 'destroy');
+});
+
+Route::controller(\App\Http\Controllers\ReactionController::class)->group(function () {
+    Route::get('reactions', 'index');
+    Route::get('reactions/{comment}', 'show');
+    Route::post('reactions', 'store');
+    Route::put('reactions/{comment}', 'update');
+    Route::delete('reactions/{comment}', 'destroy');
 });

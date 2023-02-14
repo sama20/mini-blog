@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -38,7 +39,7 @@ Route::controller(PostController::class)->group(function () {
     Route::delete('posts/{post}', 'destroy');
 });
 
-Route::controller(\App\Http\Controllers\CommentsController::class)->group(function () {
+Route::controller(CommentController::class)->group(function () {
     Route::get('comments', 'index');
     Route::get('comments/{comment}', 'show');
     Route::post('comments', 'store');

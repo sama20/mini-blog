@@ -8,9 +8,13 @@ use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $comments = Comment::all();
+        if($request->post_id){
+            $comments = Comment::where('post_id',$request->post_id)->get();
+        }else{
+            $comments = Comment::all();
+        }
         return response()->json([
             'comments' => $comments
         ], 200);

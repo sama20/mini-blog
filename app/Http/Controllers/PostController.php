@@ -29,7 +29,7 @@ class PostController extends Controller
         ]);
         $user->posts()->save($post);
 
-        return response()->json(['post' => $post, 'message' => 'Post created successfully!'], 201);
+        return response()->json(['post' => $post, 'message' => 'Post created successfully!'], 200);
     }
 
     public function show(Post $post): JsonResponse
